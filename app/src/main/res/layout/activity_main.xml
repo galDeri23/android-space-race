@@ -66,6 +66,7 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <GridLayout
+    android:id="@+id/main_LAY_asteroids"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_below="@id/main_LAY_hearts"
@@ -197,25 +198,26 @@
     </GridLayout>
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/main_LAY_space_ships"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/main_IMG_left_arrow">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_space_ship1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/width_heigin_ship"
+            android:layout_height="@dimen/width_heigin_ship"
             android:layout_margin="@dimen/defultMargin"
             app:srcCompat="@drawable/space_ship2" />
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_space_ship2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/width_heigin_ship"
+            android:layout_height="@dimen/width_heigin_ship"
             android:layout_margin="@dimen/defultMargin"
             app:srcCompat="@drawable/space_ship2" />
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_space_ship3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/width_heigin_ship"
+            android:layout_height="@dimen/width_heigin_ship"
             android:layout_margin="@dimen/defultMargin"
             app:srcCompat="@drawable/space_ship2" />
     </androidx.appcompat.widget.LinearLayoutCompat>
