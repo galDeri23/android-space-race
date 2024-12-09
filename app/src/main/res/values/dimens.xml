@@ -4,4 +4,6 @@
     <dimen name="heartMargin">10dp</dimen>
     <dimen name="defultMargin">16dp</dimen>
     <dimen name="heartWidth">140dp</dimen>
+    <dimen name="asteroid_width">60dp</dimen>
+    <dimen name="margin_asteroid">37dp</dimen>
 </resources>
