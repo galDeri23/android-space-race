@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/space"
+    android:layoutDirection="ltr"
     tools:context=".MainActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -16,7 +17,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/defultMargin"
         android:clickable="true"
-        android:layoutDirection="ltr"
         app:backgroundTint="@color/red"
         android:src="@drawable/baseline_arrow_forward_24"
         app:tint="@color/white" />
@@ -29,7 +29,6 @@
         android:layout_alignParentLeft="true"
         android:layout_margin="@dimen/defultMargin"
         app:backgroundTint="@color/red"
-        android:layoutDirection="ltr"
         android:src="@drawable/baseline_arrow_back_24"
         app:tint="@color/white" />
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -72,7 +71,7 @@
     android:layout_below="@id/main_LAY_hearts"
     android:layout_marginTop="5dp"
     android:columnCount="3"
-    android:rowCount="6">
+    android:rowCount="5">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid00"
             android:layout_width="@dimen/asteroid_width"
