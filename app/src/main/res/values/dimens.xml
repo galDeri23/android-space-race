@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="heartDimens">40dp</dimen>
+    <dimen name="heartMargin">10dp</dimen>
+    <dimen name="defultMargin">16dp</dimen>
+    <dimen name="heartWidth">140dp</dimen>
+</resources>

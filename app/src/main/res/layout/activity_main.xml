@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_IMG_right_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/defultMargin"
+        android:clickable="true"
+        android:layoutDirection="ltr"
+        app:backgroundTint="@color/red"
+        android:src="@drawable/baseline_arrow_forward_24"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_IMG_left_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="@dimen/defultMargin"
+        app:backgroundTint="@color/red"
+        android:layoutDirection="ltr"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:tint="@color/white" />
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="@dimen/heartWidth"
+    android:layout_height="@dimen/heartDimens"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="@dimen/defultMargin"
+    android:layout_marginRight="@dimen/defultMargin">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/main_IMG_hart1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/heartDimens"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/heart"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/main_IMG_hart2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/heartDimens"
+        android:layout_marginHorizontal="@dimen/heartMargin"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/heart" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/main_IMG_hart3"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/heartDimens"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/heart" />
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+<GridLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    >
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/space_ship2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/space_ship2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/space_ship2" />
+
+
+
+
+</GridLayout>
+</RelativeLayout>
