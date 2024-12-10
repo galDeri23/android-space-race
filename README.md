@@ -1,6 +1,6 @@
 # Android Space Race 🚀
 
-![Gameplay Screenshot](./Screenshot_20241210_190932_HW1_ObstacleRacingGame.jpg)
+![Gameplay Screenshot](./Screenshot_of_the_game.jpg)
 
 ## 👏 Authors
 - [@galDeri23](https://github.com/galDeri23)
