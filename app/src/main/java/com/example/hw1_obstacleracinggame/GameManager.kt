@@ -16,6 +16,8 @@ class GameManager(private val lifeCount: Int = 3, private val numLanes: Int = 3,
     val isGameOver: Boolean
         get() = timesHits == lifeCount
 
+
+
     fun moveLeft() {
         if (shipIndex > 0) {
             shipIndex--
@@ -28,37 +30,57 @@ class GameManager(private val lifeCount: Int = 3, private val numLanes: Int = 3,
         }
     }
 
+    fun hitsAsteroid() {
+        timesHits++
+    }
 
-//    private fun moveLeft(array: Array<AppCompatImageView>) {
-//        for (i in 0 until array.size){
-//            if(array[i].visibility == View.VISIBLE){
-//                array[i].visibility = View.INVISIBLE
-//                if(i != 0){
-//                    array[i - 1].visibility = View.VISIBLE
-//                }
-//                break
-//            }
-//        }
-//    }
-//
-//    private fun moveRight() {
-//        for (i in 0 until main_LAY_space_ships.size){
-//            if(main_LAY_space_ships[i].visibility == View.VISIBLE){
-//                main_LAY_space_ships[i].visibility = View.INVISIBLE
-//                if(i != main_LAY_space_ships.size - 1){
-//                    main_LAY_space_ships[i + 1].visibility = View.VISIBLE
-//                }
-//                break
-//            }
-//        }
-//    }
+    fun resetGame() {
+        shipIndex = 1
+        timesHits = 0
+        asteroidMatrix.forEach { it.fill(false) }
+        randomizeAsteroids()
+    }
+
+    fun checkCollision(): Boolean {
+        return asteroidMatrix[numRows - 1][shipIndex]
+    }
+
+    fun moveAsteroids() {
+        for (i in numRows - 1 downTo 1) {
+            for (j in 0 until numLanes) {
+                asteroidMatrix[i][j] = asteroidMatrix[i - 1][j]
+            }
+        }
+
+        for (j in 0 until numLanes) {
+            asteroidMatrix[0][j] = false
+        }
+    }
+
+    fun randomizeAsteroids() {
+        val firstRow = 0
+        val randNum = (0..<numLanes).random()
+        for (i in 0 until numLanes) {
+            asteroidMatrix[firstRow][randNum] = true
+        }
+
+    }
+
+
+/*
+    fun randomizeAsteroids() {
+        for (i in 0 until numRows) {
+            asteroidMatrix[i] = randomizeAsteroidsArray()
+        }
+    }
+
+    private fun randomizeAsteroidsArray(): Array<Boolean> {
+        val randNum = (0..<numLanes).random()
+        val asteroidsArray = Array(numLanes) { false }
+        asteroidsArray[randNum] = true
+        return asteroidsArray*/
+    }
 
 
 
 
-
-
-
-
-
-}
