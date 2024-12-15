@@ -1,4 +1,4 @@
-package com.example.hw1_obstacleracinggame
+package com.example.hw1_obstacleracinggame.utilites
 
 class Constants {
     object Timer {

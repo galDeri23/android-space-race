@@ -1,7 +1,4 @@
-package com.example.hw1_obstacleracinggame
-
-import android.view.View
-import androidx.appcompat.widget.AppCompatImageView
+package com.example.hw1_obstacleracinggame.utilites
 
 class GameManager(private val lifeCount: Int = 3, private val numLanes: Int = 3, private val numRows: Int = 5) {
 

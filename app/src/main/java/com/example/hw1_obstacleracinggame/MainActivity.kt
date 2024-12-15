@@ -1,22 +1,18 @@
 package com.example.hw1_obstacleracinggame
 
-import android.opengl.Matrix
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.appcompat.widget.LinearLayoutCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.hw1_obstacleracinggame.utilites.Constants
+import com.example.hw1_obstacleracinggame.utilites.GameManager
+import com.example.hw1_obstacleracinggame.utilites.SignalManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.util.Timer
 
 class MainActivity : AppCompatActivity() {
 
@@ -81,6 +77,10 @@ class MainActivity : AppCompatActivity() {
         updateUI()
 
     }
+    private fun toastAndVibrate(mesg: String) {
+        SignalManager.getInstance().toast(mesg)
+        SignalManager.getInstance().vibrate()
+    }
 
     private fun moveLeft() {
         gameManager.moveLeft()
@@ -102,10 +102,10 @@ class MainActivity : AppCompatActivity() {
         if(gameManager.checkCollision()){
                 gameManager.hitsAsteroid()
                 main_LAY_hearts[main_LAY_hearts.size - gameManager.timesHits].visibility = View.INVISIBLE
-                Toast.makeText(this, "Oh no! You hit an asteroid!", Toast.LENGTH_SHORT).show()
+                toastAndVibrate("You hit an asteroid!")
                 if (gameManager.isGameOver) {
                     stopTimer()
-                    Toast.makeText(this, "Game Over! Try again.", Toast.LENGTH_LONG).show()
+                    toastAndVibrate("Game Over! Try again.")
                     restartGame()
                 }
             }
