@@ -1,6 +1,10 @@
 package com.example.hw1_obstacleracinggame.utilites
 
-class GameManager(private val lifeCount: Int = 3, private val numLanes: Int = 3, private val numRows: Int = 5) {
+class GameManager(
+    private val lifeCount: Int = 3,
+    private val numLanes: Int = 3,
+    private val numRows: Int = 5
+) {
 
     var shipIndex: Int = 1
         private set
@@ -12,7 +16,6 @@ class GameManager(private val lifeCount: Int = 3, private val numLanes: Int = 3,
 
     val isGameOver: Boolean
         get() = timesHits == lifeCount
-
 
 
     fun moveLeft() {
@@ -63,20 +66,7 @@ class GameManager(private val lifeCount: Int = 3, private val numLanes: Int = 3,
 
     }
 
-
-/*
-    fun randomizeAsteroids() {
-        for (i in 0 until numRows) {
-            asteroidMatrix[i] = randomizeAsteroidsArray()
-        }
-    }
-
-    private fun randomizeAsteroidsArray(): Array<Boolean> {
-        val randNum = (0..<numLanes).random()
-        val asteroidsArray = Array(numLanes) { false }
-        asteroidsArray[randNum] = true
-        return asteroidsArray*/
-    }
+}
 
 
 
