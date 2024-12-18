@@ -14,19 +14,21 @@ class SignalManager private constructor(context: Context) {
     fun vibrate() {
         contextRef.get()?.let { context ->
             val vibrator: Vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                val vibratorManager = context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+                val vibratorManager =
+                    context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
                 vibratorManager.defaultVibrator
             } else {
                 context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-                val SOSPattern = longArrayOf(0, 200, 100, 200,100,200,300,400,300,200,100)
-                val WaveformVibrationEffect = VibrationEffect.createWaveform(SOSPattern, -1)
-                vibrator.vibrate(WaveformVibrationEffect)
+                //val SOSPattern = longArrayOf(0, 200, 100, 200,100,200,300,400,300,200,100)
+                // val WaveformVibrationEffect = VibrationEffect.createWaveform(SOSPattern, -1)
+                //vibrator.vibrate(WaveformVibrationEffect)
 
-               // val oneShotVibrationEffect = VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE)
-               // vibrator.vibrate(oneShotVibrationEffect)
+                val oneShotVibrationEffect =
+                    VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE)
+                vibrator.vibrate(oneShotVibrationEffect)
 
             } else {
                 vibrator.vibrate(500)
@@ -44,20 +46,20 @@ class SignalManager private constructor(context: Context) {
         }
     }
 
-        companion object {
-            @Volatile
-            private var instance: SignalManager? = null
+    companion object {
+        @Volatile
+        private var instance: SignalManager? = null
 
-            fun init(context: Context): SignalManager {
-                return instance ?: synchronized(this) {
-                    instance ?: SignalManager(context).also { instance = it }
-                }
-            }
-
-            fun getInstance(): SignalManager {
-                return instance
-                    ?: throw IllegalStateException("SignalManager must be initialized")
+        fun init(context: Context): SignalManager {
+            return instance ?: synchronized(this) {
+                instance ?: SignalManager(context).also { instance = it }
             }
         }
+
+        fun getInstance(): SignalManager {
+            return instance
+                ?: throw IllegalStateException("SignalManager must be initialized")
+        }
+    }
 
 }
