@@ -2,9 +2,10 @@
 <resources>
     <dimen name="heartDimens">40dp</dimen>
     <dimen name="heartMargin">10dp</dimen>
-    <dimen name="defultMargin">16dp</dimen>
+    <dimen name="defultMargin">3dp</dimen>
     <dimen name="heartWidth">140dp</dimen>
-    <dimen name="asteroid_width">60dp</dimen>
-    <dimen name="margin_asteroid">37dp</dimen>
-    <dimen name="width_heigin_ship">100dp</dimen>
+    <dimen name="asteroid_width">40dp</dimen>
+    <dimen name="margin_asteroid">20dp</dimen>
+    <dimen name="width_heigin_ship">75dp</dimen>
+    <dimen name="margin">16dp</dimen>
 </resources>
