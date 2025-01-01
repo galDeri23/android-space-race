@@ -27,12 +27,26 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/default_margin"
         android:clickable="true"
         android:src="@drawable/baseline_arrow_back_24"
         app:backgroundTint="@color/red"
         app:tint="@color/white" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_LBL_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="000"
+        android:layout_above="@+id/main_LAY_asteroids"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/main_LAY_hearts"
         android:layout_width="@dimen/heartWidth"
