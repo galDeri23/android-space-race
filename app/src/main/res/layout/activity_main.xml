@@ -15,28 +15,44 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/defultMargin"
+        android:layout_margin="@dimen/margin"
         android:clickable="true"
-        app:backgroundTint="@color/red"
         android:src="@drawable/baseline_arrow_forward_24"
+        app:backgroundTint="@color/red"
         app:tint="@color/white" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/main_IMG_left_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_margin="@dimen/defultMargin"
-        app:backgroundTint="@color/red"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/default_margin"
+        android:clickable="true"
         android:src="@drawable/baseline_arrow_back_24"
+        app:backgroundTint="@color/red"
         app:tint="@color/white" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_LBL_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="000"
+        android:layout_above="@+id/main_LAY_asteroids"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/main_LAY_hearts"
         android:layout_width="@dimen/heartWidth"
         android:layout_height="@dimen/heartDimens"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="@dimen/defultMargin"
         android:layout_marginRight="@dimen/defultMargin">
 
@@ -45,8 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/heartDimens"
             android:layout_weight="1"
-            app:srcCompat="@drawable/heart"
-            />
+            app:srcCompat="@drawable/heart" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_hart2"
@@ -65,13 +80,14 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <GridLayout
-    android:id="@+id/main_LAY_asteroids"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@id/main_LAY_hearts"
-    android:layout_marginTop="5dp"
-    android:columnCount="3"
-    android:rowCount="5">
+        android:id="@+id/main_LAY_asteroids"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/main_LAY_hearts"
+        android:layout_marginTop="5dp"
+        android:columnCount="5"
+        android:rowCount="8">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid00"
             android:layout_width="@dimen/asteroid_width"
@@ -80,6 +96,7 @@
             android:layout_column="0"
             android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid01"
             android:layout_width="@dimen/asteroid_width"
@@ -88,111 +105,709 @@
             android:layout_column="1"
             android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/main_IMG_asteroid02"
-        android:layout_width="@dimen/asteroid_width"
-        android:layout_height="@dimen/asteroid_width"
-        android:layout_margin="@dimen/margin_asteroid"
-        android:layout_row="0"
-        android:layout_column="2"
-        app:srcCompat="@drawable/craters" />
+            android:id="@+id/main_IMG_asteroid02"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid03"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid04"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid10"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="1"
             android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid11"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="1"
             android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid12"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="1"
             android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid13"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid14"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="1"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid20"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="2"
             android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid21"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="2"
             android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid22"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="2"
             android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid23"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="2"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid24"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="2"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid30"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="3"
             android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid31"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="3"
             android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid32"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="3"
             android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid33"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="3"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid34"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="3"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid40"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="4"
             android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid41"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="4"
             android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_asteroid42"
             android:layout_width="@dimen/asteroid_width"
             android:layout_height="@dimen/asteroid_width"
-            android:layout_margin="@dimen/margin_asteroid"
             android:layout_row="4"
             android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
             app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid43"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="4"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid44"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="4"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid50"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid51"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid52"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid53"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid54"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid60"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid61"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid62"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid63"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid64"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid70"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid71"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid72"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid73"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_asteroid74"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/craters" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency00"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency01"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency02"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency03"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency04"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency10"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency11"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency12"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency13"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency14"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="1"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency20"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency21"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency22"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency23"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="2"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency24"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="2"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency30"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency31"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency32"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency33"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="3"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency34"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="3"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency40"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency41"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency42"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency43"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="4"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency44"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="4"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency50"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency51"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency52"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency53"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency54"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="5"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency60"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency61"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency62"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency63"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency64"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="6"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency70"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="0"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency71"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="1"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency72"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="2"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency73"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="3"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_currency74"
+            android:layout_width="@dimen/asteroid_width"
+            android:layout_height="@dimen/asteroid_width"
+            android:layout_row="7"
+            android:layout_column="4"
+            android:layout_margin="@dimen/margin_asteroid"
+            app:srcCompat="@drawable/currency" />
+
+
 
     </GridLayout>
 
@@ -201,20 +816,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/main_IMG_left_arrow">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_space_ship1"
             android:layout_width="@dimen/width_heigin_ship"
             android:layout_height="@dimen/width_heigin_ship"
             android:layout_margin="@dimen/defultMargin"
             app:srcCompat="@drawable/space_ship2" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_space_ship2"
             android:layout_width="@dimen/width_heigin_ship"
             android:layout_height="@dimen/width_heigin_ship"
             android:layout_margin="@dimen/defultMargin"
             app:srcCompat="@drawable/space_ship2" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/main_IMG_space_ship3"
+            android:layout_width="@dimen/width_heigin_ship"
+            android:layout_height="@dimen/width_heigin_ship"
+            android:layout_margin="@dimen/defultMargin"
+            app:srcCompat="@drawable/space_ship2" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_space_ship4"
+            android:layout_width="@dimen/width_heigin_ship"
+            android:layout_height="@dimen/width_heigin_ship"
+            android:layout_margin="@dimen/defultMargin"
+            app:srcCompat="@drawable/space_ship2" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_IMG_space_ship5"
             android:layout_width="@dimen/width_heigin_ship"
             android:layout_height="@dimen/width_heigin_ship"
             android:layout_margin="@dimen/defultMargin"
