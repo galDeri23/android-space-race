@@ -6,10 +6,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.lifecycle.lifecycleScope
+import com.example.hw1_obstacleracinggame.interfaces.TiltCallback
 import com.example.hw1_obstacleracinggame.utilites.Constants
 import com.example.hw1_obstacleracinggame.utilites.GameManager
 import com.example.hw1_obstacleracinggame.utilites.SignalManager
 import com.example.hw1_obstacleracinggame.utilites.SingleSoundPlayer
+import com.example.hw1_obstacleracinggame.utilites.TiltDetector
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.Job
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var main_IMG_currency00 : Array<Array<AppCompatImageView>>
     private lateinit var main_LAY_space_ships: Array<AppCompatImageView>
     private lateinit var main_LBL_score: MaterialTextView
-
+    private lateinit var tiltDetector: TiltDetector
     private lateinit var gameManager: GameManager
     private var startTime: Long = 0
     private var timerOn: Boolean = false
@@ -38,25 +40,53 @@ class MainActivity : AppCompatActivity() {
         findViews()
         gameManager = GameManager(main_LAY_hearts.size)
         initViews()
+        val isSensorEnabled = intent.extras?.getBoolean("SensorEnabled", false) ?: false
+        val isFastSpeed = intent.extras?.getBoolean("FastSpeed", false) ?: false
 
-        startTimer()
-    }
-
-    private fun restartGame() {
-        gameManager.resetGame()
-
-        for (heart in main_LAY_hearts) {
-            heart.visibility = View.VISIBLE
+        // Use these preferences to configure the game
+        if (isSensorEnabled) {
+            initTiltDetector()
+            main_IMG_right_arrow.visibility = View.INVISIBLE
+            main_IMG_left_arrow.visibility = View.INVISIBLE
         }
-        updateUI()
-        startTimer()
+        if (isFastSpeed) {
+            startTimer(Constants.Timer.FAST)
+        }
+
+        startTimer(Constants.Timer.DELAY)
     }
 
-    private fun startTimer() {
+    private fun initTiltDetector() {
+        tiltDetector = TiltDetector(
+            context = this,
+            tiltCallback = object : TiltCallback {
+                override fun tiltX() {
+                    if (tiltDetector.tiltCounterX > 0) {
+                        gameManager.moveRight()
+                    } else {
+                        gameManager.moveLeft()
+                    }
+                }
+            }
+        )
+        tiltDetector.start()
+    }
+
+//    private fun restartGame() {
+//        gameManager.resetGame()
+//
+//        for (heart in main_LAY_hearts) {
+//            heart.visibility = View.VISIBLE
+//        }
+//        updateUI()
+//        startTimer()
+//    }
+
+    private fun startTimer(speed: Long ) {
         timerOn = true
         timerJob = lifecycleScope.launch {
             while (timerOn) {
-                delay(Constants.Timer.DELAY)
+                delay(speed)
                 moveDownAsteroidsAndCurrency()
                 updateAsteroids()
                 updateCurrency()
@@ -114,7 +144,7 @@ class MainActivity : AppCompatActivity() {
             if (gameManager.isGameOver) {
                 stopTimer()
                 toastAndVibrate("Game Over! Try again.")
-                restartGame()
+                //restartGame()
             }
         }
     }
@@ -311,4 +341,5 @@ class MainActivity : AppCompatActivity() {
             )
         )
     }
+
 }
