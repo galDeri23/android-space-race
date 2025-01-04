@@ -29,8 +29,7 @@ class TiltDetector(context: Context, private val tiltCallback: TiltCallback?) {
         sensorEventListener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent) {
                 val x = event.values[0]
-                val y = event.values[1]
-                calculateTilt(x,y)
+                calculateTilt(x)
             }
 
             override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
@@ -39,15 +38,15 @@ class TiltDetector(context: Context, private val tiltCallback: TiltCallback?) {
         }
     }
 
-    private fun calculateTilt(x: Float, y: Float) {
+    private fun calculateTilt(x: Float) {
         if (System.currentTimeMillis() - timestamp >= 500) {//enough time passed since late check:
             timestamp = System.currentTimeMillis()
             if (x >= 3.0) {
-                tiltCounterX++
+                tiltCounterX--
                 tiltCallback?.tiltX()
             }
-            if (x <=-3.0){
-                tiltCounterX--
+            if (x <= -3.0){
+                tiltCounterX++
                 tiltCallback?.tiltX()
             }
 //            if (abs(y) >= 3.0) {

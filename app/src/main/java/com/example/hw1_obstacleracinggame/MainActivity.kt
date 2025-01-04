@@ -1,5 +1,8 @@
 package com.example.hw1_obstacleracinggame
 
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorManager
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -32,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private var startTime: Long = 0
     private var timerOn: Boolean = false
     private lateinit var timerJob: Job
+    private var isSensorEnabled = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +44,8 @@ class MainActivity : AppCompatActivity() {
         findViews()
         gameManager = GameManager(main_LAY_hearts.size)
         initViews()
-        val isSensorEnabled = intent.extras?.getBoolean("SensorEnabled", false) ?: false
-        val isFastSpeed = intent.extras?.getBoolean("FastSpeed", false) ?: false
+        isSensorEnabled = intent.extras?.getBoolean("SensorEnabled", false) ?: false
+        var isFastSpeed = intent.extras?.getBoolean("FastSpeed", false) ?: false
 
         // Use these preferences to configure the game
         if (isSensorEnabled) {
@@ -62,15 +66,35 @@ class MainActivity : AppCompatActivity() {
             tiltCallback = object : TiltCallback {
                 override fun tiltX() {
                     if (tiltDetector.tiltCounterX > 0) {
-                        gameManager.moveRight()
+                        moveRight()
                     } else {
-                        gameManager.moveLeft()
+                        moveLeft()
                     }
                 }
             }
         )
         tiltDetector.start()
     }
+
+    override fun onResume() {
+        super.onResume()
+        if(isSensorEnabled){
+            tiltDetector.start()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        tiltDetector.stop()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (isSensorEnabled) {
+            tiltDetector.stop()
+        }
+    }
+
 
 //    private fun restartGame() {
 //        gameManager.resetGame()
@@ -106,8 +130,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViews() {
         main_LBL_score.text = gameManager.score.toString()
-        main_IMG_right_arrow.setOnClickListener({ v -> moveRight() })
-        main_IMG_left_arrow.setOnClickListener({ v -> moveLeft() })
+        if (!isSensorEnabled){
+            main_IMG_right_arrow.setOnClickListener({ v -> moveRight() })
+            main_IMG_left_arrow.setOnClickListener({ v -> moveLeft() })
+        }
         gameManager.randomizeAsteroidsAndCurrency()
         updateUI()
     }
