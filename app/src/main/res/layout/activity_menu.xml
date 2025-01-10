@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/space"
+    android:layoutDirection="ltr"
+    tools:context=".MenuActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/startGame_IMG_spaceShip"
+        android:layout_width="@dimen/spaceShip_width_height"
+        android:layout_height="@dimen/spaceShip_width_height"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/space_ship2"
+         />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/startGame_TXT_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/startGame_IMG_spaceShip"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/default_margin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/name_game_size"
+        android:textStyle="bold"
+        android:text="Obstacle Racing"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startGame_BTN_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/default_margin"
+        android:layout_below="@id/startGame_TXT_name"
+        android:textSize="@dimen/button_size"
+        android:textStyle="bold"
+        android:text="Start Game"
+
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startGame_BTN_highScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/startGame_BTN_start"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/default_margin"
+        android:textSize="@dimen/button_size"
+        android:textStyle="bold"
+        android:text="High Scores table"
+         />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/startGame_layout_switches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/startGame_BTN_highScores"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin_switch"
+        android:gravity="center_vertical">
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/startGame_switch_sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/default_margin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size"
+        android:textStyle="bold"
+        android:text="Sensor: " />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/startGame_TXT_sensor_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Button"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@id/startGame_layout_switches"
+    android:layout_centerHorizontal="true"
+    android:layout_margin="@dimen/margin_switch"
+    android:gravity="center_vertical">
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/startGame_switch_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Speed: "
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/startGame_TXT_speed_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Slow"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</RelativeLayout>
