@@ -1,11 +1,8 @@
 package com.example.hw1_obstacleracinggame
 
-import android.content.Context
-import android.hardware.Sensor
-import android.hardware.SensorManager
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.lifecycle.lifecycleScope
@@ -36,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private var timerOn: Boolean = false
     private lateinit var timerJob: Job
     private var isSensorEnabled = false
+    private lateinit var gameOverActivity: GameOverActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,15 +94,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-//    private fun restartGame() {
-//        gameManager.resetGame()
-//
-//        for (heart in main_LAY_hearts) {
-//            heart.visibility = View.VISIBLE
-//        }
-//        updateUI()
-//        startTimer()
-//    }
+    private fun finishGame() {
+        val intent = Intent(this, GameOverActivity::class.java)
+        val score = gameManager.score
+        intent.putExtra("EXTRA_SCORE", score)
+        startActivity(intent)
+        finish()
+    }
 
     private fun startTimer(speed: Long ) {
         timerOn = true
@@ -116,6 +112,8 @@ class MainActivity : AppCompatActivity() {
                 updateCurrency()
                 if (gameManager.isGameOver) {
                     stopTimer()
+                    finishGame()
+
                 }
             }
         }
