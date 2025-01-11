@@ -83,7 +83,9 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun showHighScores() {
-        TODO("Not yet implemented")
+        val intent = Intent(this, GameOverActivity::class.java)
+        startActivity(intent)
+        finish()
     }
     private fun startGame() {
 
