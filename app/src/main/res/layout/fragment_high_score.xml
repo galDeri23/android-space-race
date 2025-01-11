@@ -1,25 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_100"
     android:layoutDirection="ltr"
-    tools:context=".fragments.HighScoreFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".fragments.HighScoreFragment">
 
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/highScores_title"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="High Scores"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"
-        android:paddingBottom="16dp"
-        android:layout_marginTop="16dp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/highScores_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menu"
+            android:backgroundTint="@color/red"
+            android:textColor="@android:color/white"
+            android:layout_margin="16dp" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/highScores_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="High Scores"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp" />
+    </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -27,7 +43,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_below="@id/highScores_title"
         tools:listitem="@layout/item_high_score" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

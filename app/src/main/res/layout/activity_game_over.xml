@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".GameOverActivity">
 
+
     <FrameLayout
         android:id="@+id/FRAME_list"
         android:layout_width="match_parent"

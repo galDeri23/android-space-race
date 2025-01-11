@@ -1,6 +1,7 @@
 package com.example.hw1_obstacleracinggame.fragments
 
 import android.content.Context.MODE_PRIVATE
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,14 +10,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hw1_obstacleracinggame.MenuActivity
 import com.example.hw1_obstacleracinggame.R
 import com.example.hw1_obstacleracinggame.adapters.HighScoresAdapter
 import com.example.hw1_obstacleracinggame.models.Score
+import com.google.android.material.button.MaterialButton
 
 class HighScoreFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var highScoresAdapter: HighScoresAdapter
+    private lateinit var highScores_menu: MaterialButton
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,14 +44,25 @@ class HighScoreFragment : Fragment() {
     }
 
     private fun initViews() {
+        highScores_menu.setOnClickListener {
+            Log.d("HighScoreFragment", "Menu button clicked")
+            navigateToMenu()
+        }
         highScoresAdapter = HighScoresAdapter(mutableListOf())
         recyclerView.adapter = highScoresAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         Log.d("HighScoreFragment", "RecyclerView initialized with empty adapter")
     }
 
+    private fun navigateToMenu() {
+        val intent = Intent(requireContext(), MenuActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
+    }
+
     private fun findViews(view: View) {
         recyclerView = view.findViewById(R.id.highScores_RecyclerView)
+        highScores_menu = view.findViewById(R.id.highScores_menu)
     }
 
     fun addScore(score: Int) {
