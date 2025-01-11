@@ -38,5 +38,10 @@ class GameOverActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.FRAME_list, highScoreFragment)
             .commit()
+
+        mapFragment = MapFragment()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.FRAME_map, mapFragment)
+            .commit()
     }
 }

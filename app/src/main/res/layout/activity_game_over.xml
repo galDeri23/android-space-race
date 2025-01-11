@@ -15,7 +15,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/purple_200"
-        android:padding="@dimen/default_margin"
         />
 
     <FrameLayout
@@ -24,7 +23,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/red"
-        android:padding="@dimen/default_margin"
         />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
