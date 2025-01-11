@@ -1,25 +1,42 @@
 package com.example.hw1_obstacleracinggame.fragments
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.hw1_obstacleracinggame.R
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
-class MapFragment : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.fragment_map)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+class MapFragment : Fragment(), OnMapReadyCallback {
+
+    private lateinit var googleMap: GoogleMap
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_map, container, false)
+
+
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
+        return view
     }
 
-    fun zoom(d: Double, d1: Double) {
 
+    override fun onMapReady(map: GoogleMap) {
+        googleMap = map
+
+
+        val telAviv = LatLng(32.0853, 34.7818)
+        googleMap.addMarker(MarkerOptions().position(telAviv).title("Marker in Tel Aviv"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(telAviv, 10f))
     }
 }
