@@ -94,10 +94,11 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun finishGame() {
+    private fun finishGame(score: Int) {
         val intent = Intent(this, GameOverActivity::class.java)
-        val score = gameManager.score
-        intent.putExtra("EXTRA_SCORE", score)
+        val bundle = Bundle()
+        bundle.putInt("EXTRA_SCORE", score)
+        intent.putExtras(bundle)
         startActivity(intent)
         finish()
     }
@@ -112,7 +113,8 @@ class MainActivity : AppCompatActivity() {
                 updateCurrency()
                 if (gameManager.isGameOver) {
                     stopTimer()
-                    finishGame()
+                    val score = gameManager.score
+                    finishGame(score)
 
                 }
             }

@@ -1,6 +1,7 @@
 package com.example.hw1_obstacleracinggame.adapters
 
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -37,11 +38,12 @@ class HighScoresAdapter(private val score: MutableList<Score>) : RecyclerView.Ad
     }
 
     fun addScore(newScore: Score) {
+        Log.d("HighScoresAdapter", "Adding new score: ${newScore.score}")
         score.add(newScore)
         score.sortByDescending { it.score }
-        val newIndex = score.indexOf(newScore)
-        notifyItemInserted(newIndex)
+        notifyDataSetChanged()
     }
+
 
     fun getScores(): List<Int> {
         return score.sortedByDescending { it.score }.map { it.score }

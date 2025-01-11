@@ -1,11 +1,11 @@
 package com.example.hw1_obstacleracinggame
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hw1_obstacleracinggame.fragments.HighScoreFragment
 import com.example.hw1_obstacleracinggame.fragments.MapFragment
-import com.example.hw1_obstacleracinggame.interfaces.callbake_HighScoreItemClicked
 
 class GameOverActivity : AppCompatActivity() {
 
@@ -20,7 +20,6 @@ class GameOverActivity : AppCompatActivity() {
 
         findViews()
         initFragments()
-        handleIncomingScore()
     }
 
     private fun findViews() {
@@ -29,34 +28,15 @@ class GameOverActivity : AppCompatActivity() {
     }
 
     private fun initFragments() {
-//        mapFragment = MapFragment()
-//        supportFragmentManager.beginTransaction()
-//            .add(R.id.FRAME_map, mapFragment)
-//            .commit()
-
-
+        // יצירת Fragment של HighScore עם ניקוד מועבר
         highScoreFragment = HighScoreFragment()
+        val bundle = Bundle()
+        val score = intent.extras?.getInt("EXTRA_SCORE", 0) ?: 0
+        bundle.putInt("EXTRA_SCORE", score)
+        highScoreFragment.arguments = bundle
+
         supportFragmentManager.beginTransaction()
             .add(R.id.FRAME_list, highScoreFragment)
             .commit()
-        highScoreFragment.setCallBack(object : callbake_HighScoreItemClicked {
-            override fun highScoreItemClicked(score: Int) {
-
-                mapFragment.zoom(0.0, 0.0)
-            }
-        })
-
-
-    }
-
-    private fun handleIncomingScore() {
-        val score = intent.getIntExtra("EXTRA_SCORE", 0)
-        if (score > 0) {
-            addScoreToHighScoreFragment(score)
-        }
-    }
-
-    private fun addScoreToHighScoreFragment(score: Int) {
-        highScoreFragment.addScore(score)
     }
 }
