@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HW1_ObstacleRacingGame</string>
+    <string name="score_text">Score: %d</string>
+    <string name="line_number">%d.</string>
 </resources>
