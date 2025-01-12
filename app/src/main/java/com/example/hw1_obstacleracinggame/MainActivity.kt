@@ -83,12 +83,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        tiltDetector.stop()
+        if (::tiltDetector.isInitialized && isSensorEnabled) {
+            tiltDetector.stop()
+        }
     }
 
     override fun onStop() {
         super.onStop()
-        if (isSensorEnabled) {
+        if (::tiltDetector.isInitialized && isSensorEnabled) {
             tiltDetector.stop()
         }
     }

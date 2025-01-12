@@ -6,42 +6,44 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hw1_obstacleracinggame.fragments.HighScoreFragment
 import com.example.hw1_obstacleracinggame.fragments.MapFragment
+import com.example.hw1_obstacleracinggame.interfaces.callbake_HighScoreItemClicked
+import com.google.android.gms.maps.model.LatLng
 
 class GameOverActivity : AppCompatActivity() {
 
-    private lateinit var FRAME_list: FrameLayout
-    private lateinit var FRAME_map: FrameLayout
-    private lateinit var mapFragment: MapFragment
     private lateinit var highScoreFragment: HighScoreFragment
+    private lateinit var mapFragment: MapFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_over)
 
-        findViews()
         initFragments()
     }
 
-    private fun findViews() {
-        FRAME_list = findViewById(R.id.FRAME_list)
-        FRAME_map = findViewById(R.id.FRAME_map)
-    }
-
     private fun initFragments() {
-        // יצירת Fragment של HighScore עם ניקוד מועבר
-        highScoreFragment = HighScoreFragment()
-        val bundle = Bundle()
-        val score = intent.extras?.getInt("EXTRA_SCORE", 0) ?: 0
-        bundle.putInt("EXTRA_SCORE", score)
-        highScoreFragment.arguments = bundle
-
-        supportFragmentManager.beginTransaction()
-            .add(R.id.FRAME_list, highScoreFragment)
-            .commit()
 
         mapFragment = MapFragment()
         supportFragmentManager.beginTransaction()
-            .add(R.id.FRAME_map, mapFragment)
+            .replace(R.id.FRAME_map, mapFragment)
             .commit()
+
+
+        highScoreFragment = HighScoreFragment()
+        highScoreFragment.highScoreItemClicked = object : callbake_HighScoreItemClicked {
+            override fun highScoreItemClicked(score: Int, lat: Double, lon: Double) {
+                mapFragment.focusOnLocation(LatLng(lat, lon))
+            }
+        }
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.FRAME_list, highScoreFragment)
+            .commit()
+
+        //show all scores on the map
+        highScoreFragment.setOnDataReadyListener {
+            val allLocations = highScoreFragment.getAllScoresWithLocations()
+            mapFragment.setMarkers(allLocations)
+        }
     }
 }

@@ -11,7 +11,9 @@ import com.example.hw1_obstacleracinggame.interfaces.callbake_HighScoreItemClick
 import com.example.hw1_obstacleracinggame.models.Score
 
 
-class HighScoresAdapter(private val score: MutableList<Score>) : RecyclerView.Adapter<HighScoresAdapter.ScoreViewHolder>() {
+class HighScoresAdapter(
+    private val score: MutableList<Score>
+    ) : RecyclerView.Adapter<HighScoresAdapter.ScoreViewHolder>() {
 
     var itemCallback: callbake_HighScoreItemClicked? = null
 
@@ -28,25 +30,35 @@ class HighScoresAdapter(private val score: MutableList<Score>) : RecyclerView.Ad
         return if (position in score.indices) score[position] else throw IndexOutOfBoundsException("Invalid position: $position")
     }
 
+
     override fun onBindViewHolder(holder: ScoreViewHolder, position: Int) {
         with(holder) {
             with(getItem(position)) {
                 binding.itemScore.text = holder.itemView.context.getString(R.string.score_text, this.score)
                 binding.itemNumber.text = holder.itemView.context.getString(R.string.line_number, position + 1)
+
+                binding.root.setOnClickListener {
+                    itemCallback?.highScoreItemClicked(this.score, this.lat, this.lon)
+                }
             }
         }
     }
 
+
     fun addScore(newScore: Score) {
-        Log.d("HighScoresAdapter", "Adding new score: ${newScore.score}")
         score.add(newScore)
         score.sortByDescending { it.score }
         notifyDataSetChanged()
     }
+    fun updateScores(newScores: List<Score>) {
+        score.clear()
+        score.addAll(newScores)
+        score.sortByDescending { it.score }
+        notifyDataSetChanged()
+    }
 
-
-    fun getScores(): List<Int> {
-        return score.sortedByDescending { it.score }.map { it.score }
+    fun getScores(): List<Score> {
+        return score.sortedByDescending { it.score }
     }
 
     inner class ScoreViewHolder(val binding: ItemHighScoreBinding) :
@@ -54,7 +66,7 @@ class HighScoresAdapter(private val score: MutableList<Score>) : RecyclerView.Ad
         init {
             binding.itemCV.setOnClickListener {
                 val item = getItem(adapterPosition)
-                itemCallback?.highScoreItemClicked(item.score)
+                itemCallback?.highScoreItemClicked(item.score, item.lat, item.lon)
             }
         }
     }
