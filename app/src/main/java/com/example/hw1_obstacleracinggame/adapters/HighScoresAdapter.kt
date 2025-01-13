@@ -37,6 +37,7 @@ class HighScoresAdapter(
                 binding.itemScore.text = holder.itemView.context.getString(R.string.score_text, this.score)
                 binding.itemNumber.text = holder.itemView.context.getString(R.string.line_number, position + 1)
 
+
                 binding.root.setOnClickListener {
                     itemCallback?.highScoreItemClicked(this.score, this.lat, this.lon)
                 }
@@ -48,12 +49,14 @@ class HighScoresAdapter(
     fun addScore(newScore: Score) {
         score.add(newScore)
         score.sortByDescending { it.score }
+        if (score.size > 10) {
+            score.removeAt(score.size - 1)
+        }
         notifyDataSetChanged()
     }
     fun updateScores(newScores: List<Score>) {
         score.clear()
-        score.addAll(newScores)
-        score.sortByDescending { it.score }
+        score.addAll(newScores.sortedByDescending { it.score }.take(10))
         notifyDataSetChanged()
     }
 

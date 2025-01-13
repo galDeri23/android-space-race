@@ -43,7 +43,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         )
         googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(israelBounds, 100))
 
-
         addAllLocations()
     }
 
@@ -69,3 +68,4 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         }
     }
 }
+
