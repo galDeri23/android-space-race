@@ -1,50 +1,72 @@
-# Android Space Race 🚀
+# **GameApp**
 
-![Gameplay Screenshot](./spaceship2.png)
-
-## 👏 Authors
-- [@galDeri23](https://github.com/galDeri23)
+A game created as part of a Mobile Applications course project.
 
 ---
 
-**Android Space Race** is a thrilling obstacle game where players control a spaceship that must avoid incoming asteroids. The game is designed to test the player's reflexes and reaction time while offering a fun and engaging experience with a colorful and sleek design.
+## **How to Run**
+
+To use this app, ensure all necessary dependencies are installed on your system. No special API keys are required.
 
 ---
 
-## 📖 Game Description
-In this game, your mission is to survive as long as possible by dodging falling asteroids heading toward your spaceship. You have **3 lives**, and every collision with an asteroid costs you one life. The game ends when you run out of lives, but don’t worry – the game will restart automatically so you can try again!
+## **Overview**
+
+**GameApp** is a fun and interactive game designed for Android devices, featuring intuitive controls and customizable settings to enhance user experience.
 
 ---
 
-## 🎮 Key Features
-- **Dynamic Object Movement:** Asteroids continuously move downward toward the spaceship every second.
-- **Collision Detection:** Asteroids that collide with the spaceship reduce your life count.
-- **Timer-Based Updates:** A timer controls the movement of obstacles, ensuring smooth gameplay.
-- **Life System:** Players start with 3 lives, with a visual indicator showing the remaining lives.
+## **App Flow**
+
+### **1. Main Menu**
+
+The Main Menu provides access to the primary features of the game.  
+**Available options:**
+- **Start Game**: Starts the game loop with the settings selected by the user.
+- **Control Mode**: Toggle between movement using the **sensor** or **buttons**.
+- **Speed Setting**: Choose between **high** or **low** game speed.
+- **Scoreboard**: Opens the scoreboard to view high scores.
+
+![menuGameScreen](Images/menuGameScreen.jpg)
 
 ---
 
-## 🛠️ Technologies Used
-- **Android Studio**: For app development and user interface design.
-- **Kotlin**: The primary programming language for Android applications.
-- **Coroutines**: For managing timers and game logic.
+### **2. Game Screen**
+
+The Game Screen is the main gameplay area.  
+**Features include:**
+- Motion controls using the device's accelerometer (optional).
+- Speed adjustments based on user settings.
+- Collecting coins during the game to accumulate points.
+- Music that plays upon collision with an obstacle.
+- Real-time interactive backgrounds and animations.
+
+![gameScreen](Images/gameScreen.jpg)
 
 ---
 
-## 🚀 How to Play
-1. **Launch the app:** As soon as you open the app, the game begins automatically.
-2. **Move the spaceship:** Use the left and right arrows to move your spaceship across the screen.
-3. **Avoid the asteroids:** Stay alert and dodge the falling obstacles.
-4. **Survive:** Keep dodging and avoid losing all 3 lives to maximize your score.
+### **3. Scoreboard Screen**
+
+The Scoreboard Screen allows players to view their achievements and top scores.  
+**Features include:**
+- **Top Scores Table**: Displays the top 10 highest scores.
+- **Map Integration**: Shows the locations where high scores were achieved.
+- **Return to Main Menu**: A button to return to the main menu for easy navigation.
+
+![highScoreScreen](Images/highScoreScreen.jpg)
 
 ---
 
-## 🎯 Project Purpose
-This game was developed as the **first assignment** for a Mobile Applications course. It showcases fundamental Android development skills, including game mechanics, object motion, collision detection, and UI implementation.
+## **Technical Highlights**
+
+- Built using **Kotlin 2.1.0** for Android.
+- Utilizes **SharedPreferences** for saving scores.
+- **Motion Controls**: Detects device tilt using an accelerometer.
+- **Collision Music**: Plays appropriate sound effects upon collision.
+- **Map Integration**: Displays player achievements on an interactive map.
 
 ---
 
+## **Authors**
 
-## 👏 Credits
-Developed as part of a Mobile Applications course project. Thanks to all mentors and teammates who contributed feedback and support.
-
+- [Gal Deri](https://github.com/galDeri23)
