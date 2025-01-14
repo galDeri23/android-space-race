@@ -53,9 +53,10 @@ class MainActivity : AppCompatActivity() {
         }
         if (isFastSpeed) {
             startTimer(Constants.Timer.FAST)
+        }else{
+            startTimer(Constants.Timer.DELAY)
         }
 
-        startTimer(Constants.Timer.DELAY)
     }
 
     private fun initTiltDetector() {
