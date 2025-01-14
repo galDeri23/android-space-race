@@ -6,8 +6,13 @@ A game created as part of a Mobile Applications course project.
 
 ## **How to Run**
 
-To use this app, ensure all necessary dependencies are installed on your system. No special API keys are required.
+> To use this app, you need a valid Maps API token. Make sure to save the token safely with Gradle Secrets.
 
+- Save your `token` in the project directory under `secrets.properties`:
+
+  ```properties
+  MAPS_API_KEY=<Your Token>
+  ```
 ---
 
 ## **Overview**
@@ -25,7 +30,7 @@ The Main Menu provides access to the primary features of the game.
 - **Start Game**: Starts the game loop with the settings selected by the user.
 - **Control Mode**: Toggle between movement using the **sensor** or **buttons**.
 - **Speed Setting**: Choose between **high** or **low** game speed.
-- **Scoreboard**: Opens the scoreboard to view high scores.
+- **High Score Table**: Opens the scoreboard to view high scores.
 
 ![menuGameScreen](Images/menuGameScreen.jpg)
 
@@ -45,9 +50,9 @@ The Game Screen is the main gameplay area.
 
 ---
 
-### **3. Scoreboard Screen**
+### **3. High Score Screen**
 
-The Scoreboard Screen allows players to view their achievements and top scores.  
+The High Score Screen allows players to view their achievements and top scores.  
 **Features include:**
 - **Top Scores Table**: Displays the top 10 highest scores.
 - **Map Integration**: Shows the locations where high scores were achieved.
